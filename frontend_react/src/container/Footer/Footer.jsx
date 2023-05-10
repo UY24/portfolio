@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { images } from '../../constants';
-import { AppWrap, MotionWrap } from '../../wrapper';
-import { client } from '../../client';
-import './Footer.scss';
+import { images } from "../../constants";
+import { AppWrap, MotionWrap } from "../../wrapper";
+import { client } from "../../client";
+import "./Footer.scss";
 
 const Footer = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -21,13 +25,14 @@ const Footer = () => {
     setLoading(true);
 
     const contact = {
-      _type: 'contact',
+      _type: "contact",
       name: formData.username,
       email: formData.email,
       message: formData.message,
     };
 
-    client.create(contact)
+    client
+      .create(contact)
       .then(() => {
         setLoading(false);
         setIsFormSubmitted(true);
@@ -47,9 +52,9 @@ const Footer = () => {
           </a>
         </div>
         <div className="app__footer-card">
-          <img src={images.mobile} alt="phone" />
-          <a href="tel:+917983283532" className="p-text">
-            +91 79832 83532
+          <img src={images.linkedin} alt="linkedin" />
+          <a href="https://www.linkedin.com/in/ujjwal-yadav-9026371ba/" className="p-text">
+            LinkedIn
           </a>
         </div>
       </div>
@@ -98,7 +103,7 @@ const Footer = () => {
 };
 
 export default AppWrap(
-  MotionWrap(Footer, 'app__footer'),
-  'contact',
-  'app__whitebg',
+  MotionWrap(Footer, "app__footer"),
+  "contact",
+  "app__whitebg"
 );

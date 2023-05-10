@@ -1,6 +1,19 @@
-import React from "react";
-import {About, Footer, Header, Skills, Testimonials, Work} from './container';
-const App = () => {
-  return <h2>App</h2>;
-};
+import React from 'react';
+
+import { About, Footer, Header, Skills, Testimonial, Work } from './container';
+import { Navbar } from './components';
+import './App.scss';
+
+const App = () => (
+  <div className="app">
+    <Navbar />
+    <Header />
+    <About />
+    <Work />
+    <Skills />
+    <Testimonial />
+    <Footer />
+  </div>
+);
+
 export default App;
